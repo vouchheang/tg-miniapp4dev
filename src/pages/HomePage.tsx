@@ -33,6 +33,7 @@ const HomePage = () => {
         const data = initData || "Unable to get initData!";
         window.Telegram.WebApp.sendData(data);
         window.Telegram.WebApp.sendData("Hello From Mini App...");
+        navigator.clipboard.writeText(data);
         setMessage(data);
       } else {
         console.error("Telegram WebApp not found.");
@@ -59,9 +60,14 @@ const HomePage = () => {
         className="mt-4 py-2 px-4 bg-amber-400 hover:bg-amber-600 text-gray-950 hover:text-white rounded cursor-pointer"
         onClick={sendMessage}
       >
-        {loading ? "Sending..." : "Send Message"}
+        {loading ? "Loading..." : "Get Data"}
       </button>
-      {message && <span className="mt-8 text-white">{message}</span>}
+      <span className="py-2 text-gray-500">Get data & copy to clipboard.</span>
+      {message && (
+        <div className="p-4 m-4 border border-amber-300 rounded-2xl text-white">
+          {message}
+        </div>
+      )}
     </div>
   );
 };
