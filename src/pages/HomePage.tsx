@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface TelegramWebAppUser {
   id: number;
@@ -13,6 +13,7 @@ const HomePage = () => {
   const initData = window.Telegram.WebApp.initData;
   const userInfo: TelegramWebAppUser | undefined =
     window.Telegram.WebApp.initDataUnsafe.user;
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     const tg = window.Telegram?.WebApp;
@@ -25,8 +26,10 @@ const HomePage = () => {
   const sendMessage = () => {
     if (initData) {
       window.Telegram.WebApp.sendData(initData || "Unable to get initData!");
+      setMessage(initData);
     } else {
       console.error("Telegram WebApp not found.");
+      setMessage("Telegram Web App Init Data was not found.");
     }
   };
 
@@ -48,6 +51,7 @@ const HomePage = () => {
       >
         Send Init Data
       </button>
+      {message && <span className="mt-8 text-white">{message}</span>}
     </div>
   );
 };
