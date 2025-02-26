@@ -13,6 +13,7 @@ const HomePage = () => {
   const initData = window.Telegram.WebApp.initData;
   const userInfo: TelegramWebAppUser | undefined =
     window.Telegram.WebApp.initDataUnsafe.user;
+
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +41,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 h-screen w-screen">
+    <div className="flex flex-col items-center p-4 w-full">
       {userInfo && (
         <img
           src={userInfo.photo_url}
@@ -60,9 +61,12 @@ const HomePage = () => {
       </button>
       <span className="py-2 text-gray-500">Get data & copy to clipboard.</span>
       {message && (
-        <div className="p-4 m-4 border border-amber-300 rounded-2xl text-white max-w-screen">
+        <a
+          href={`${message}`}
+          className="p-4 m-4 border border-amber-300 rounded-2xl text-white"
+        >
           {message}
-        </div>
+        </a>
       )}
     </div>
   );
