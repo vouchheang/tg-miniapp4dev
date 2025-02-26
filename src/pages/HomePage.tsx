@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface TelegramWebAppUser {
   id: number;
@@ -15,14 +15,6 @@ const HomePage = () => {
     window.Telegram.WebApp.initDataUnsafe.user;
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const tg = window.Telegram?.WebApp;
-
-    if (tg) {
-      tg.expand();
-    }
-  }, []);
 
   const sendMessage = () => {
     setLoading(true);
