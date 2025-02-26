@@ -14,6 +14,7 @@ const HomePage = () => {
   const userInfo: TelegramWebAppUser | undefined =
     window.Telegram.WebApp.initDataUnsafe.user;
   const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const tg = window.Telegram?.WebApp;
@@ -24,13 +25,21 @@ const HomePage = () => {
   }, []);
 
   const sendMessage = () => {
-    if (initData) {
-      window.Telegram.WebApp.sendData(initData || "Unable to get initData!");
-      setMessage(initData);
-    } else {
-      console.error("Telegram WebApp not found.");
-      setMessage("Telegram Web App Init Data was not found.");
-    }
+    setLoading(true);
+    setMessage("...");
+
+    setTimeout(() => {
+      if (initData) {
+        const data = initData || "Unable to get initData!";
+        window.Telegram.WebApp.sendData(data);
+        window.Telegram.WebApp.sendData("Hello From Mini App...");
+        setMessage(data);
+      } else {
+        console.error("Telegram WebApp not found.");
+        setMessage("Telegram Web App Init Data was not found.");
+      }
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -46,10 +55,11 @@ const HomePage = () => {
       )}
       <h1 className="text-xl font-bold">Mini App</h1>
       <button
+        disabled={loading}
         className="mt-4 py-2 px-4 bg-amber-400 hover:bg-amber-600 text-gray-950 hover:text-white rounded cursor-pointer"
         onClick={sendMessage}
       >
-        Send Init Data
+        {loading ? "Sending..." : "Send Message"}
       </button>
       {message && <span className="mt-8 text-white">{message}</span>}
     </div>
