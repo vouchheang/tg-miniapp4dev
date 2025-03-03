@@ -7,12 +7,24 @@ const ProfilePage = () => {
   const initData = useSelector((state: RootState) => state.auth.initData);
   const token = useSelector((state: RootState) => state.auth.token);
 
-  console.log("userInfo:", userInfo);
-  console.log("initData:", initData);
+  console.log("Profile Page");
   console.log("token:", token);
 
   useEffect(() => {
     window.Telegram.WebApp.expand();
+
+    const loadData = async () => {
+      const response = await fetch(`http://localhost:3001/api/auth/get-data`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      });
+      console.log("response: ", await response.json());
+    };
+
+    loadData();
   }, []);
 
   const renderUserInfo = () => {

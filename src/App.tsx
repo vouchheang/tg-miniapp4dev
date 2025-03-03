@@ -3,11 +3,13 @@ import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import appRouter from "./routes/appRoutes";
 import api from "./service/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuthData } from "./store/slices/authSlice";
+import { RootState } from "./store/store";
 
 function App() {
   const dispatch = useDispatch();
+  const token = useSelector((state: RootState) => state.auth.token);
 
   const MODE = import.meta.env.MODE;
   console.log(MODE);
@@ -54,7 +56,8 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={appRouter} />
+      {token && <RouterProvider router={appRouter} />}
+      {!token && <div>Loading...</div>}
     </>
   );
 }
