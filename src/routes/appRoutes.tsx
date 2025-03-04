@@ -1,13 +1,14 @@
 import { JSX } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../pages/Layout";
-import WorkoutPage from "../pages/WorkoutPage";
-import WorkoutPlanApp from "../pages/workout";
+import WorkoutPlanApp from "../pages/Workout";
 
 import CouponPage from "../pages/Coupon";
 import MembershipPlans from "../pages/membershipPlan";
 import Promotion from "../pages/Promotion";
 import LandingPage from "../pages/Landing";
+import ProfilePage from "../pages/ProfilePage";
+import MobileFitnessApp from "../pages/Branch";
 
 
 export interface AppRoute {
@@ -19,16 +20,13 @@ export interface AppRoute {
 
 export const webRoutes = {
   home: "/",
-
-  workoutPage: "/workout-page"
-
-  coupon:"/coupon",
-  membershipPlan:"/membershipPlan"
-
-  promotion:"/promotion",
+  branches: "/branches",
+  workoutPage: "/workout",
+  coupon: "/coupon",
+  membershipPlan: "/membershipPlan",
+  promotion: "/promotion",
 
   // discover: "/discover",
-
 };
 
 const errorElement = (
@@ -42,20 +40,13 @@ const appRoutes: AppRoute[] = [
     path: "/",
     element: <Layout />,
     children: [
-
-      { path: webRoutes.home, element: <ProfilePage /> },
-
+      { path: webRoutes.home, element: <LandingPage /> },
       { path: webRoutes.workoutPage, element: <WorkoutPlanApp /> },
-
       { path: webRoutes.coupon, element: <CouponPage /> },
       { path: webRoutes.membershipPlan, element: <MembershipPlans /> },
-      
-
       { path: webRoutes.home, element: <LandingPage /> },
       { path: webRoutes.promotion, element: <Promotion /> },
-
-
-
+      { path: webRoutes.branches, element: <MobileFitnessApp /> },
       // { path: webRoutes.discover, element: <DiscoverPage /> },
     ],
   },
