@@ -1,8 +1,12 @@
 import { JSX } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../pages/Layout";
+
+import CouponPage from "../pages/Coupon";
+import MembershipPlans from "../pages/membershipPlan";
 import Promotion from "../pages/Promotion";
 import LandingPage from "../pages/Landing";
+
 
 export interface AppRoute {
   path?: string;
@@ -13,8 +17,12 @@ export interface AppRoute {
 
 export const webRoutes = {
   home: "/",
+  coupon:"/coupon",
+  membershipPlan:"/membershipPlan"
+=======
   promotion:"/promotion",
   // discover: "/discover",
+
 };
 
 const errorElement = (
@@ -28,8 +36,15 @@ const appRoutes: AppRoute[] = [
     path: "/",
     element: <Layout />,
     children: [
+
+      { path: webRoutes.home, element: <ProfilePage /> },
+      { path: webRoutes.coupon, element: <CouponPage /> },
+      { path: webRoutes.membershipPlan, element: <MembershipPlans /> },
+      
+
       { path: webRoutes.home, element: <LandingPage /> },
       { path: webRoutes.promotion, element: <Promotion /> },
+
 
       // { path: webRoutes.discover, element: <DiscoverPage /> },
     ],
