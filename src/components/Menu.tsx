@@ -4,26 +4,25 @@ import { useNavigate } from "react-router-dom";
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-
+  
   const menuItems = [
     { name: "Home page", path: "/" },
-    { name: "Branch", path: "/branch" },
-    { name: "Membership plan", path: "/membership-plan" },
+    { name: "Branch", path: "/branches" },
+    { name: "Membership plan", path: "/membershipPlan" },
     { name: "Membership info", path: "/membership-info" },
     { name: "Promotions", path: "/promotion" },
-    { name: "Coupons", path: "/coupons" },
-    { name: "Workout plan", path: "/workout-plan" },
+    { name: "Workout plan", path: "/workout" },
   ];
-
+  
   return (
     <div className="relative">
       {/* Menu Button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="bg-green-700 text-white p-2 rounded-md focus:outline-none"
+        className="text-gray-200 bg-green-800 p-2 rounded-md focus:outline-none hover:bg-gray-700 transition-colors duration-200"
       >
         <svg
-          className="w-6 h-6"
+          className="w-7 h-7"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,22 +36,24 @@ const Menu = () => {
           />
         </svg>
       </button>
-
-      {/* Dropdown Menu */}
+      
+      {/* Dropdown Menu with improved styling */}
       {isMenuOpen && (
-        <div className="absolute top-12 right-0 bg-green-800 text-white rounded-md shadow-lg w-48 z-20">
-          {menuItems.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                navigate(item.path);
-                setIsMenuOpen(false); // Close menu after clicking
-              }}
-              className="block w-full text-left px-4 py-2 hover:bg-green-700"
-            >
-              {item.name}
-            </button>
-          ))}
+        <div className="absolute top-12 right-0 bg-gradient-to-br from-teal-800 to-teal-600 text-white rounded-md shadow-lg w-56 z-20 overflow-hidden border border-green-700 opacity-90 ">
+          <div className="py-2">
+            {menuItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  navigate(item.path);
+                  setIsMenuOpen(false); // Close menu after clicking
+                }}
+                className="block w-full text-left px-4 py-3 hover:bg-green-700 transition-colors duration-150 border-b border-green-700 last:border-b-0 font-medium"
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

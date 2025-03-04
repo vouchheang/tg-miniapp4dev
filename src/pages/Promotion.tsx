@@ -1,7 +1,7 @@
-import React from "react";
 import { ChevronLeft } from "lucide-react"; // Back icon
 import Menu from "../components/Menu";
 import { motion } from "framer-motion"; // Importing motion for animations
+import proImg from "../../public/images/hulkgym.jpg";
 
 const promotions = [
   {
@@ -9,40 +9,36 @@ const promotions = [
     description:
       "Get 20% OFF on 6-month & 12-month memberships + 10% OFF on personal training sessions.",
     validUntil: "March 31, 2025",
-    image: "/hulkgym.jpg", // Ensure this image is in the public folder
+    image: proImg, // Ensure this image is in the public folder
   },
   {
     title: "START TRAINING TODAY",
     description:
       "Get 20% OFF on 6-month & 12-month memberships + 10% OFF on personal training sessions.",
     validUntil: "March 31, 2025",
-    image: "/hulkgym.jpg",
+    image: proImg,
   },
   {
     title: "START TRAINING TODAY",
     description:
       "Get 20% OFF on 6-month & 12-month memberships + 10% OFF on personal training sessions.",
     validUntil: "March 31, 2025",
-    image: "/hulkgym.jpg",
+    image: proImg,
   },
   {
     title: "START TRAINING TODAY",
     description:
       "Get 20% OFF on 6-month & 12-month memberships + 10% OFF on personal training sessions.",
     validUntil: "March 31, 2025",
-    image: "/hulkgym.jpg",
+    image: proImg,
   },
 ];
 
 const Promotion = () => {
   return (
     <div className="bg-white min-h-screen max-w-md mx-auto p-4">
-      {/* Header with Back Button */}
       <div className="flex items-center justify-between mb-6">
-        <button className="text-green-700">
-          <ChevronLeft size={28} />
-        </button>
-        <h1 className="text-green-700 text-4xl font-bold flex-1 text-center">
+        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-emerald-800 via-green-700 to-teal-600 bg-clip-text text-transparent flex-1 text-center ml-7">
           Promotion
         </h1>
         <Menu />
@@ -53,7 +49,7 @@ const Promotion = () => {
         {promotions.map((promo, index) => (
           <motion.div
             key={index}
-            className="bg-green-500 rounded-xl shadow-md overflow-hidden"
+            className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-xl shadow-md overflow-hidden"
             initial={{ opacity: 0, y: 20 }} // Starting position for the animation
             animate={{ opacity: 1, y: 0 }} // Final position
             transition={{ duration: 0.5, delay: index * 0.3 }} // Animation delay for staggered effect
