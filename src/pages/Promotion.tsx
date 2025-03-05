@@ -1,4 +1,3 @@
-import { ChevronLeft } from "lucide-react"; // Back icon
 import Menu from "../components/Menu";
 import { motion } from "framer-motion"; // Importing motion for animations
 import proImg from "../../public/images/hulkgym.jpg";

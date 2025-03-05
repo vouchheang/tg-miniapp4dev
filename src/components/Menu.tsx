@@ -37,9 +37,9 @@ const Menu = () => {
         </svg>
       </button>
       
-      {/* Dropdown Menu with improved styling */}
+      {/* Dropdown Menu with hover effect */}
       {isMenuOpen && (
-        <div className="absolute top-12 right-0 bg-gradient-to-br from-teal-800 to-teal-600 text-white rounded-md shadow-lg w-56 z-20 overflow-hidden border border-green-700 opacity-90 ">
+        <div className="absolute top-12 right-0 bg-gradient-to-br from-teal-800 to-teal-600 text-white rounded-md shadow-lg w-56 z-20 overflow-hidden border border-green-700 opacity-90">
           <div className="py-2">
             {menuItems.map((item, index) => (
               <button
@@ -48,7 +48,8 @@ const Menu = () => {
                   navigate(item.path);
                   setIsMenuOpen(false); // Close menu after clicking
                 }}
-                className="block w-full text-left px-4 py-3 hover:bg-green-700 transition-colors duration-150 border-b border-green-700 last:border-b-0 font-medium"
+                className="block w-full text-left px-4 py-3 transition-all duration-200 border-b border-green-700 last:border-b-0 font-medium
+                  hover:bg-green-700 hover:text-gray-200 hover:pl-6"
               >
                 {item.name}
               </button>
