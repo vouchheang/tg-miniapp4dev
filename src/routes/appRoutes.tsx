@@ -7,7 +7,7 @@ import CouponPage from "../pages/Coupon";
 import MembershipPlans from "../pages/membershipPlan";
 import Promotion from "../pages/Promotion";
 import LandingPage from "../pages/Landing";
-import ProfilePage from "../pages/ProfilePage";
+// import ProfilePage from "../pages/ProfilePage";
 import MobileFitnessApp from "../pages/Branch";
 
 

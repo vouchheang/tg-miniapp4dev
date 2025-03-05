@@ -33,19 +33,19 @@ function App() {
   useEffect(() => {
     const login = async () => {
       try {
-        //     const response = (await api.signin({ initData, userInfo })) as {
-        //       message: string;
-        //       token: string;
-        //     };
-        //     console.log("Backend response:", response);
+            const response = (await api.signin({ initData, userInfo })) as {
+              message: string;
+              token: string;
+            };
+            console.log("Backend response:", response);
 
-        //     dispatch(
-        //       setAuthData({
-        //         initData: initData ?? "",
-        //         userInfo,
-        //         token: response.token,
-        //       })
-        //     );
+            dispatch(
+              setAuthData({
+                initData: initData ?? "",
+                userInfo,
+                token: response.token,
+              })
+            );
 
         dispatch(
           setAuthData({

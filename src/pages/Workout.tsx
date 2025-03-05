@@ -8,7 +8,7 @@ import img4 from "../../public/images/card4.png";
 import img5 from "../../public/images/imageworkout.jpg";
 import Menu from "../components/Menu";
 import { useState } from "react"
-import { ArrowRight, ChevronLeft } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 // Custom Card component to avoid import error
 function Card({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {

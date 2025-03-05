@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 
 const ProfilePage = () => {
-  const userInfo = useSelector((state: RootState) => state.auth.userInfo);
-  const initData = useSelector((state: RootState) => state.auth.initData);
+  // const userInfo = useSelector((state: RootState) => state.auth.userInfo);
+  // const initData = useSelector((state: RootState) => state.auth.initData);
   const token = useSelector((state: RootState) => state.auth.token);
 
   console.log("Profile Page");
