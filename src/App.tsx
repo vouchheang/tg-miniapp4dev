@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import appRouter from "./routes/appRoutes";
-import api from "./service/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthData } from "./store/slices/authSlice";
 import { RootState } from "./store/store";
@@ -33,20 +32,6 @@ function App() {
   useEffect(() => {
     const login = async () => {
       try {
-            const response = (await api.signin({ initData, userInfo })) as {
-              message: string;
-              token: string;
-            };
-            console.log("Backend response:", response);
-
-            dispatch(
-              setAuthData({
-                initData: initData ?? "",
-                userInfo,
-                token: response.token,
-              })
-            );
-
         dispatch(
           setAuthData({
             initData: initData ?? "",
