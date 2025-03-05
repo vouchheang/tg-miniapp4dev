@@ -52,7 +52,7 @@ function App() {
     <>
     
       {token && <RouterProvider router={appRouter} />}
-      {!token && <div>Loading...</div>}
+      {/* {!token && <div>Loading...</div>} */}
     </>
   );
 }
